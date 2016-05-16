@@ -1,0 +1,141 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 135376 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:323), pid=5664, tid=9908
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_79-b15) (build 1.7.0_79-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.79-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000008338800):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=9908, stack(0x00000000099b0000,0x0000000009ab0000)]
+
+Stack: [0x00000000099b0000,0x0000000009ab0000]
+
+Current CompileTask:
+C2:    187    6             sun.nio.cs.UTF_8$Decoder::decode (640 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000833f800 JavaThread "Service Thread" daemon [_thread_blocked, id=3168, stack(0x0000000009ab0000,0x0000000009bb0000)]
+=>0x0000000008338800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=9908, stack(0x00000000099b0000,0x0000000009ab0000)]
+  0x000000000832e800 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=7508, stack(0x00000000098b0000,0x00000000099b0000)]
+  0x000000000832d800 JavaThread "Attach Listener" daemon [_thread_blocked, id=9636, stack(0x00000000097b0000,0x00000000098b0000)]
+  0x000000000832b000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=7476, stack(0x00000000096b0000,0x00000000097b0000)]
+  0x00000000082de800 JavaThread "Finalizer" daemon [_thread_blocked, id=8800, stack(0x00000000095b0000,0x00000000096b0000)]
+  0x00000000082d5000 JavaThread "Reference Handler" daemon [_thread_blocked, id=748, stack(0x00000000094b0000,0x00000000095b0000)]
+  0x0000000002380800 JavaThread "main" [_thread_in_vm, id=12824, stack(0x0000000001f40000,0x0000000002040000)]
+
+Other Threads:
+  0x00000000082d0000 VMThread [stack: 0x00000000093b0000,0x00000000094b0000] [id=9044]
+  0x000000000834d000 WatcherThread [stack: 0x0000000009bb0000,0x0000000009cb0000] [id=2528]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 18944K, used 2303K [0x00000000eaa80000, 0x00000000ebf80000, 0x0000000100000000)
+  eden space 16384K, 14% used [0x00000000eaa80000,0x00000000eacbfdd8,0x00000000eba80000)
+  from space 2560K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ebf80000)
+  to   space 2560K, 0% used [0x00000000eba80000,0x00000000eba80000,0x00000000ebd00000)
+ ParOldGen       total 42496K, used 0K [0x00000000c0000000, 0x00000000c2980000, 0x00000000eaa80000)
+  object space 42496K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c2980000)
+ PSPermGen       total 21504K, used 3330K [0x00000000bae00000, 0x00000000bc300000, 0x00000000c0000000)
+  object space 21504K, 15% used [0x00000000bae00000,0x00000000bb140b38,0x00000000bc300000)
+
+Card table byte_map: [0x0000000005540000,0x0000000005770000] byte_map_base: 0x0000000004f69000
+
+Polling page: 0x0000000000610000
+
+Code Cache  [0x0000000002480000, 0x00000000026f0000, 0x0000000005480000)
+ total_blobs=198 nmethods=5 adapters=146 free_code_cache=48758Kb largest_free_block=49916992
+
+Compilation events (10 events):
+Event: 0.124 Thread 0x0000000008338800    2             sun.misc.ASCIICaseInsensitiveComparator::compare (126 bytes)
+Event: 0.130 Thread 0x0000000008338800 nmethod 2 0x00000000024e3290 code [0x00000000024e33e0, 0x00000000024e3758]
+Event: 0.153 Thread 0x000000000832e800    3             java.lang.String::indexOf (70 bytes)
+Event: 0.156 Thread 0x000000000832e800 nmethod 3 0x00000000024df450 code [0x00000000024df5a0, 0x00000000024df728]
+Event: 0.162 Thread 0x0000000008338800    4             java.lang.String::hashCode (55 bytes)
+Event: 0.164 Thread 0x0000000008338800 nmethod 4 0x00000000024e2f50 code [0x00000000024e3080, 0x00000000024e31d8]
+Event: 0.167 Thread 0x000000000832e800    5             java.lang.String::lastIndexOf (52 bytes)
+Event: 0.170 Thread 0x000000000832e800 nmethod 5 0x00000000024e2b90 code [0x00000000024e2ce0, 0x00000000024e2e48]
+Event: 0.178 Thread 0x0000000008338800    6             sun.nio.cs.UTF_8$Decoder::decode (640 bytes)
+Event: 0.183 Thread 0x000000000832e800    7             java.lang.String::replace (127 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.168 Thread 0x0000000002380800 Threw 0x00000000eac2dc78 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.168 Thread 0x0000000002380800 Threw 0x00000000eac2fd90 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.169 Thread 0x0000000002380800 Threw 0x00000000eac348d0 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.170 Thread 0x0000000002380800 Threw 0x00000000eac38cc8 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.170 Thread 0x0000000002380800 Threw 0x00000000eac3d698 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.171 Thread 0x0000000002380800 Threw 0x00000000eac41be8 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.175 Thread 0x0000000002380800 Threw 0x00000000eac492e8 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.175 Thread 0x0000000002380800 Threw 0x00000000eac4ea40 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.176 Thread 0x0000000002380800 Threw 0x00000000eac50b38 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.179 Thread 0x0000000002380800 Threw 0x00000000eac78ff0 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+
+Events (10 events):
+Event: 0.181 loading class 0x00000000083829b0 done
+Event: 0.181 loading class 0x0000000008382920 done
+Event: 0.181 loading class 0x0000000008382220
+Event: 0.181 loading class 0x0000000008382220 done
+Event: 0.181 loading class 0x00000000083829e0
+Event: 0.181 loading class 0x00000000083829e0 done
+Event: 0.181 loading class 0x00000000023cce00
+Event: 0.181 loading class 0x0000000008384730
+Event: 0.181 loading class 0x0000000008384730 done
+Event: 0.181 loading class 0x00000000023cce00 done
+
+
+Dynamic libraries:
+0x00007ff6a74c0000 - 0x00007ff6a74f3000 	C:\Program Files\Java\jdk1.7.0_79\bin\java.exe
+0x00007fffd1ad0000 - 0x00007fffd1c7c000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007fffd1290000 - 0x00007fffd13ce000 	C:\windows\system32\KERNEL32.DLL
+0x00007fffceed0000 - 0x00007fffcefe5000 	C:\windows\system32\KERNELBASE.dll
+0x00007fffcd7c0000 - 0x00007fffcd84e000 	C:\windows\system32\apphelp.dll
+0x00007fffc1760000 - 0x00007fffc17b3000 	C:\windows\AppPatch\AppPatch64\AcGenral.DLL
+0x00007fffd17a0000 - 0x00007fffd184a000 	C:\windows\system32\msvcrt.dll
+0x00007fffce9f0000 - 0x00007fffcea1e000 	C:\windows\SYSTEM32\SspiCli.dll
+0x00007fffd1010000 - 0x00007fffd1064000 	C:\windows\system32\SHLWAPI.dll
+0x00007fffcf1c0000 - 0x00007fffcf337000 	C:\windows\system32\USER32.dll
+0x00007fffd13e0000 - 0x00007fffd1574000 	C:\windows\system32\ole32.dll
+0x00007fffcf930000 - 0x00007fffd0e5b000 	C:\windows\system32\SHELL32.dll
+0x00007fffce1c0000 - 0x00007fffce1e1000 	C:\windows\SYSTEM32\USERENV.dll
+0x00007fffd1850000 - 0x00007fffd18fa000 	C:\windows\system32\ADVAPI32.dll
+0x00007fffc6b40000 - 0x00007fffc6b5e000 	C:\windows\SYSTEM32\MPR.dll
+0x00007fffd1980000 - 0x00007fffd1ac1000 	C:\windows\system32\RPCRT4.dll
+0x00007fffd1230000 - 0x00007fffd1289000 	C:\windows\SYSTEM32\sechost.dll
+0x00007fffcf560000 - 0x00007fffcf771000 	C:\windows\SYSTEM32\combase.dll
+0x00007fffd0e60000 - 0x00007fffd0fb0000 	C:\windows\system32\GDI32.dll
+0x00007fffcec20000 - 0x00007fffcec35000 	C:\windows\SYSTEM32\profapi.dll
+0x00007fffccfe0000 - 0x00007fffcd092000 	C:\windows\SYSTEM32\SHCORE.dll
+0x00007fffd1580000 - 0x00007fffd15b6000 	C:\windows\system32\IMM32.DLL
+0x00007fffcf400000 - 0x00007fffcf552000 	C:\windows\system32\MSCTF.dll
+0x00007fffcc410000 - 0x00007fffcc68b000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9600.18006_none_623f33d3ecbe86e8\COMCTL32.dll
+0x00007fffc70f0000 - 0x00007fffc712e000 	C:\Program Files (x86)\NCG\NcgSecurity64_v20140407.dll
+0x00007fffc8990000 - 0x00007fffc89c2000 	C:\windows\SYSTEM32\ntmarta.dll
